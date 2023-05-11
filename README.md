@@ -127,11 +127,11 @@ php artisan vendor:publish --tag="lara-invoice-views"
 
 ```php
 use Yearul\LaraInvoice\LaraInvoice; // import this in the top of the class
- $value = Yearul\LaraInvoice::generate(2); // 2 is input value
-echo $value;
+ $value = LaraInvoice::generate(2); // 2 is input value
+echo $value;  //Output  YEA-2023-00002 
 //Generate Method
 //  generate($input,  $pad_len = null, $pad_string = null, $prefix = null, $year = null)
- // the generate method received 5 value, $input value is mandatory and others value not mandatory( thoes can get from config file)
+ // the generate method received 5 value, $input value is mandatory and others value not mandatory( thoes can get from config file and also Manual Input)
 
 ```
 
