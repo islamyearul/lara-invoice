@@ -1,0 +1,82 @@
+{
+    "name": "yearul/lara-invoice",
+    "description": "The Laravel Invoice Number Generator is a powerful and flexible package that simplifies the process of generating unique invoice numbers within Laravel applications. It provides a convenient solution for managing invoice numbers, ensuring they are unique, sequential, and customizable according to your specific requirements.",
+    "keywords": [
+        "yearul",
+        "laravel",
+        "lara-invoice",
+        "invoice",
+        "invoice number",
+        "lara invoice number generator",
+        "invoice number generator",
+        "invoice number generator laravel",
+        "invoice number generator laravel package",
+        "invoice number generator laravel package yearul",
+        "invoice number generator laravel package yearul islam",
+        "invoice number generator laravel package yearul islam yearul"
+    ],
+    "homepage": "https://github.com/islamyearul/lara-invoice",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "islamyearul",
+            "email": "yearulislamonem@gmail.com",
+            "role": "Software Engineer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4|^8.0",
+        "spatie/laravel-package-tools": "^1.14.0",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yearul\\LaraInvoice\\": "src/",
+            "Yearul\\LaraInvoice\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yearul\\LaraInvoice\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yearul\\LaraInvoice\\LaraInvoiceServiceProvider"
+            ],
+            "aliases": {
+                "LaraInvoice": "Yearul\\LaraInvoice\\Facades\\LaraInvoice"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
