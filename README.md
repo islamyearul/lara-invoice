@@ -7,13 +7,6 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/lara-invoice.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/lara-invoice)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -21,13 +14,6 @@ You can install the package via composer:
 
 ```bash
 composer require yearul/lara-invoice
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="lara-invoice-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -40,6 +26,70 @@ This is the contents of the published config file:
 
 ```php
 return [
+
+    /* 
+    |--------------------------------------------------------------------------
+    | Invoice NO Generator Config
+    |--------------------------------------------------------------------------
+    |
+    | This is the config file for Invoice NO generator. You can override
+    | this config file by placing it in your application's config directory
+    | and change the values as per your need.
+    |
+    */
+
+     /*
+    |--------------------------------------------------------------------------
+    | Default Pad Length
+    |--------------------------------------------------------------------------
+    |
+    | If no  pad length is provided to the generate method, this value will be used
+    |
+    */
+    "pad_len" => 5,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Prefix
+    |--------------------------------------------------------------------------
+    |
+    | If no prefix is provided to the generate method, this value will be used
+    |
+    */
+    "prefix" => "YEA",
+    /*
+    |--------------------------------------------------------------------------
+    | Default year and year_val
+    |--------------------------------------------------------------------------
+    |
+    | If no year and year_val is provided to the generate method, this value will be used
+    |
+    */
+
+    "year" => true,
+    "year_val" => date('Y'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default  pad string
+    |--------------------------------------------------------------------------
+    |
+    | If no pad string is provided to the generate method, this value will be used
+    |
+    */
+
+    "pad_string" => 0,   // 0, #, *, $.......etc
+    /*
+    |--------------------------------------------------------------------------
+    | Default  pad_direction
+    |--------------------------------------------------------------------------
+    |
+    | If no pad_direction is provided to the generate method, this value will be used
+    |
+    */
+
+    "pad_direction" => STR_PAD_LEFT,   // STR_PAD_LEFT, STR_PAD_RIGHT
+
 ];
 ```
 
@@ -52,8 +102,13 @@ php artisan vendor:publish --tag="lara-invoice-views"
 ## Usage
 
 ```php
-$laraInvoice = new Yearul\LaraInvoice();
-echo $laraInvoice->echoPhrase('Hello, Yearul!');
+use Yearul\LaraInvoice\LaraInvoice; // import this in the top of the class
+ $value = Yearul\LaraInvoice::generate(2); // 2 is input value
+echo $value;
+//Generate Method
+//  generate($input,  $pad_len = null, $pad_string = null, $prefix = null, $year = null)
+ // the generate method received 5 value, $input value is mandatory and others value not mandatory( thoes can get from config file)
+
 ```
 
 ## Testing
